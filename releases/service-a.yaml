@@ -14,7 +14,10 @@ spec:
     ref: master
     path: charts/service-a
   values:
-    image: nginx:1
+    values:
+    image:
+      repository: nginx
+      tag: stable
     replicaCount: 1
     persistence:
       enabled: false
