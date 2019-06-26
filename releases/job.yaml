@@ -18,7 +18,6 @@ spec:
     image:
       repository: nginx
       tag: '1'
-    replicaCount: 1
     persistence:
       enabled: false
     resources:
