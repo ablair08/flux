@@ -24,6 +24,7 @@ spec:
     image:
       repository: bitnami/redis
       tag: 4.0.12
+    replicaCount: 0
     service:
       type: ClusterIP
       port: 6379
