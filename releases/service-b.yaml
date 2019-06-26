@@ -24,3 +24,5 @@ spec:
         memory: 32Mi
         cpu: 10m
     serviceType: ClusterIP
+dependencies:
+- service-a
