@@ -1,0 +1,24 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: service-a
+  namespace: e2e
+  annotations:
+    flux.weave.works/automated: "false"
+    flux.weave.works/tag.chart-image: glob:1.21.*
+spec:
+  releaseName: e2e
+  chart:
+    git: ssh://git@github.com/ablair08/flux
+    ref: master
+    path: charts/service-a
+  values:
+    image: nginx:stable
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 32Mi
+        cpu: 10m
+    serviceType: ClusterIP
