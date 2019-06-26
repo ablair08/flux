@@ -47,9 +47,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-dependencies:
-- service-a
-- service-b
-- service-c
-- service-d
