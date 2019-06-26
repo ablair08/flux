@@ -8,7 +8,7 @@ metadata:
     flux.weave.works/automated: "false"
     flux.weave.works/tag.chart-image: glob:1.*
 spec:
-  releaseName: e2e
+  releaseName: service-a
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
