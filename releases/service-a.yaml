@@ -5,7 +5,7 @@ metadata:
   name: service-a
   namespace: e2e
   annotations:
-    flux.weave.works/automated: "false"
+    flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: semver:~1.0
 spec:
   releaseName: service-a
