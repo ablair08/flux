@@ -14,7 +14,7 @@ spec:
     ref: master
     path: charts/service-a
   values:
-    image: nginx:stable
+    image: nginx:1
     replicaCount: 1
     persistence:
       enabled: false
