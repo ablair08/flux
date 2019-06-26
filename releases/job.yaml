@@ -2,7 +2,7 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: service-b
+  name: job
   namespace: e2e
   annotations:
     flux.weave.works/automated: "true"
@@ -12,7 +12,7 @@ spec:
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
-    path: charts/service-b
+    path: charts/job
   values:
     values:
     image:
