@@ -7,7 +7,7 @@ metadata:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: semver:~1.0
 spec:
-  releaseName: service-e
+  releaseName: service
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
