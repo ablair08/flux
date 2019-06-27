@@ -11,7 +11,7 @@ spec:
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
-    path: charts/service
+    path: charts/service-b
   values:
     values:
     image:

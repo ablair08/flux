@@ -48,6 +48,4 @@ tolerations: []
 
 affinity: {}
 
-dependencies:
-- service-a
-- service-b
+dependencies: []

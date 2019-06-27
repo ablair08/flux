@@ -1,7 +1,7 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: service
+  name: service-a
   namespace: e2e
   annotations:
     flux.weave.works/automated: "true"
