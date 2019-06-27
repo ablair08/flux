@@ -37,6 +37,12 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      initContainers:
+      {{range .Values.dependencies}}
+      - name: init-{{.}}
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup {{.}}; do echo waiting for myservice; sleep 2; done;']
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
