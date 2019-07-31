@@ -47,9 +47,9 @@ spec:
         runAsNonRoot: true
         runAsUser: 1000140100
       serviceAccountName: prometheus-operator
-      additionalScrapeConfigs:
-        name: additional-scrape-configs
-        key: prometheus-additional.yaml
+      # additionalScrapeConfigs:
+      #   name: additional-scrape-configs
+      #   key: prometheus-additional.yaml
 ---
 apiVersion: v1
 kind: ServiceAccount
