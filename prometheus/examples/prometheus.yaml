@@ -76,3 +76,8 @@ spec:
   serviceMonitorSelector:
     matchLabels:
       team: frontend
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus-operator
