@@ -1,30 +1,30 @@
-apiVersion: flux.weave.works/v1beta1
-kind: HelmRelease
-metadata:
-  name: service-d
-  namespace: e2e
-  annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: semver:~1.0
-spec:
-  releaseName: service-d
-  chart:
-    git: ssh://git@github.com/ablair08/flux
-    ref: master
-    path: charts/service
-  values:
-    values:
-    image:
-      repository: nginx
-      tag: 1.17
-    persistence:
-      enabled: false
-    resources:
-      requests:
-        memory: 32Mi
-        cpu: 10m
-    serviceType: ClusterIP
-    dependencies:
-    - service-a
-    - service-b
-    - service-c
+# apiVersion: flux.weave.works/v1beta1
+# kind: HelmRelease
+# metadata:
+#   name: service-d
+#   namespace: e2e
+#   annotations:
+#     flux.weave.works/automated: "true"
+#     flux.weave.works/tag.chart-image: semver:~1.0
+# spec:
+#   releaseName: service-d
+#   chart:
+#     git: ssh://git@github.com/ablair08/flux
+#     ref: master
+#     path: charts/service
+#   values:
+#     values:
+#     image:
+#       repository: nginx
+#       tag: 1.17
+#     persistence:
+#       enabled: false
+#     resources:
+#       requests:
+#         memory: 32Mi
+#         cpu: 10m
+#     serviceType: ClusterIP
+#     dependencies:
+#     - service-a
+#     - service-b
+#     - service-c
