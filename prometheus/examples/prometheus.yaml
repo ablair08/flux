@@ -50,34 +50,3 @@ spec:
       # additionalScrapeConfigs:
       #   name: additional-scrape-configs
       #   key: prometheus-additional.yaml
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  labels:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/name: prometheus-operator
-    app.kubernetes.io/version: v0.31.1
-  name: prometheus-operator
-  namespace: myproject
----
-apiVersion: monitoring.coreos.com/v1
-kind: Prometheus
-metadata:
-  name: prometheus
-  labels:
-    prometheus: prometheus
-spec:
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000140100
-  replicas: 2
-  serviceAccountName: prometheus-operator
-  serviceMonitorSelector:
-    matchLabels:
-      team: frontend
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: prometheus-operator
