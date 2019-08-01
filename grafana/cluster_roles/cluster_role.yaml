@@ -16,6 +16,8 @@ rules:
     - ""
     resources:
     - serviceaccounts
+    - services
+    - services/finalizers
     verbs:
     - '*'
   - apiGroups:
