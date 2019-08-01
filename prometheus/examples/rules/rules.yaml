@@ -4,6 +4,7 @@ metadata:
   labels:
     prometheus: prometheus
     role: alert-rules
+    namespace: myproject
   name: prometheus
 spec:
   groups:
