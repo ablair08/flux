@@ -6,6 +6,7 @@ rules:
   - apiGroups:
       - integreatly.org
     resources:
+      - grafanas
       - grafanadashboards
       - grafanadashboards/finalizers
     verbs: ['get', 'list', 'update', 'watch']
