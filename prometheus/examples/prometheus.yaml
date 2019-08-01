@@ -81,24 +81,3 @@ spec:
         prometheus: prometheus
         role: alert-rules
   serviceAccountName: prometheus
-# ---
-# apiVersion: monitoring.coreos.com/v1
-# kind: Alertmanager
-# metadata:
-#   name: alertmanager
-# spec:
-#   replicas: 1
-#   securityContext:
-#     runAsNonRoot: true
-#     runAsUser: 1000140100
-#   serviceMonitorSelector:
-#     matchLabels:
-#       team: frontend
-#   resources:
-#     requests:
-#       memory: 400Mi
-#   serviceAccountName: prometheus
-
-  
-
-  
