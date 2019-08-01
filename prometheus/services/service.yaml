@@ -9,6 +9,11 @@ metadata:
   namespace: myproject
 ---  
 apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus
+---  
+apiVersion: v1
 kind: Service
 metadata:
   labels:
