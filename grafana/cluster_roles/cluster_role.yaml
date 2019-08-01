@@ -12,3 +12,10 @@ rules:
       - grafanadashboards
       - grafanadashboards/finalizers
     verbs: ['get', 'list', 'update', 'watch']
+  - apiGroups:
+    - ""
+    resources:
+    - serviceaccounts
+    verbs:
+    - list
+    - watch
