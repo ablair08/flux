@@ -4,6 +4,7 @@ metadata:
   name: simple-dashboard
   labels:
     app: grafana
+  namespace: myproject
 spec:
   name: simple-dashboard.json
   json: >

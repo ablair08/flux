@@ -4,6 +4,7 @@ metadata:
   name: dashboard-with-plugins
   labels:
     app: grafana
+  namespace: myproject
 spec:
   name: dashboard-with-plugins.json
   json: >
