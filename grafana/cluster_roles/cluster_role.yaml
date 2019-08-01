@@ -6,6 +6,7 @@ rules:
   - apiGroups:
       - integreatly.org
     resources:
+      - serviceaccounts
       - grafanas
       - grafanadatasources
       - grafanadashboards
