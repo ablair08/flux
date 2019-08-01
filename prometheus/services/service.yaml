@@ -12,6 +12,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: prometheus
+  namespace: myproject
 ---  
 apiVersion: v1
 kind: Service
