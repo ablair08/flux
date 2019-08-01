@@ -50,3 +50,54 @@ spec:
       # additionalScrapeConfigs:
       #   name: additional-scrape-configs
       #   key: prometheus-additional.yaml
+--- 
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000140100
+  alerting:
+    alertmanagers:
+    - namespace: myproject
+      name: alertmanager
+      port: web
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
+  serviceMonitorSelector:
+    matchLabels:
+      team: frontend
+  resources:
+    requests:
+      memory: 400Mi
+  enableAdminAPI: false
+  ruleSelector:
+      matchLabels:
+        prometheus: prometheus
+        role: alert-rules
+  serviceAccountName: prometheus
+# ---
+# apiVersion: monitoring.coreos.com/v1
+# kind: Alertmanager
+# metadata:
+#   name: alertmanager
+# spec:
+#   replicas: 1
+#   securityContext:
+#     runAsNonRoot: true
+#     runAsUser: 1000140100
+#   serviceMonitorSelector:
+#     matchLabels:
+#       team: frontend
+#   resources:
+#     requests:
+#       memory: 400Mi
+#   serviceAccountName: prometheus
+
+  
+
+  
