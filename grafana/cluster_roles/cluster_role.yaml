@@ -6,6 +6,7 @@ rules:
   - apiGroups:
       - integreatly.org
     resources:
+      - services
       - serviceaccounts
       - grafanas
       - grafanadatasources
@@ -27,3 +28,9 @@ rules:
     - secrets
     verbs:
     - '*'
+  - apiGroups:
+    - extensions
+    resources:
+      - ingresses
+    verbs:
+      - '*'
