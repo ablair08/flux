@@ -7,6 +7,7 @@ rules:
       - integreatly.org
     resources:
       - grafanas
+      - grafanadatasources
       - grafanadashboards
       - grafanadashboards/finalizers
     verbs: ['get', 'list', 'update', 'watch']
