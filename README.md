@@ -21,10 +21,10 @@ helm init --skip-refresh --upgrade --service-account tiller --history-max 10
 helm repo add fluxcd https://fluxcd.github.io/flux
 
 
-helm upgrade -i flux \
---set helmOperator.create=true \
---set helmOperator.createCRD=false \
---set git.url=git@github.com:ablair08/flux \
+helm upgrade -i flux \\
+--set helmOperator.create=true \\
+--set helmOperator.createCRD=false \\
+--set git.url=git@github.com:ablair08/flux \\
 --namespace flux \
 fluxcd/flux
 
