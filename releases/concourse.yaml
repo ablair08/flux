@@ -31,6 +31,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: concourse-web
+      app: concourse-web
   endpoints:
   - port: prometheus
