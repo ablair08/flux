@@ -37,7 +37,7 @@ kubectl create secret generic additional-scrape-configs --from-file=prometheus-a
 kubectl create secret generic alertmanager-alertmanager --from-file=alertmanager.yaml -n myproject
 
 
-once the flux pod comes up 
+**once the flux pod comes up** 
 
   kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 
