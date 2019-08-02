@@ -2,16 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-exporter
-  app: node-exporter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-exporter
+      name: node-exporter
   template:
     metadata:
       labels:
-        app: node-exporter
+        name: node-exporter
     spec:
       securityContext:
         runAsNonRoot: true
@@ -40,7 +39,7 @@ metadata:
     app: node-exporter
 spec:
   selector:
-    app: node-exporter
+    name: node-exporter
   ports:
   - name: web
     port: 9100
