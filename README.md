@@ -34,3 +34,5 @@ kubectl create secret generic alertmanager-alertmanager --from-file=alertmanager
 
   kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 
+  copy deploy key to github!!
+
