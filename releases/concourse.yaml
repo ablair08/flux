@@ -21,7 +21,7 @@ spec:
         ports:
         - name: web
           containerPort: 9391
-        - name: web
+        - name: ui
           containerPort: 8080
         resources:
             limits:
