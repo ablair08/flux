@@ -30,6 +30,11 @@ spec:
       requests:
         memory: 32Mi
         cpu: 10m
+    concourse:
+      web:
+        prometheus:
+          web:
+            enabled: 'true'
     serviceType: ClusterIP
 ---
 apiVersion: monitoring.coreos.com/v1
