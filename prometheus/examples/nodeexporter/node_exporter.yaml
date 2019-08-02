@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-exporter
+  namespace: myproject
 spec:
   replicas: 1
   selector:
@@ -35,6 +36,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: node-exporter
+  namespace: myproject
   labels:
     app: node-exporter
 spec:
@@ -48,6 +50,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: node-exporter
+  namespace: myproject
   labels:
     team: frontend
 spec:
@@ -61,6 +64,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: node-exporter
+  namespace: myproject
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
