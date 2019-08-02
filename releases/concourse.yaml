@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: concourse
-  releaseName: service-b
+  releaseName: concourse
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
