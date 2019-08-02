@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: concourse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: concourse
+  template:
+    metadata:
+      labels:
+        app: concourse
+    spec:
+      containers:
+      - name: concourse
+        image: concourse/concourse
+        ports:
+        - name: web
+          containerPort: 9391
+  values:
+    concourse:
+    - web:
+      - prometheus:
+        - enabled: 'true'
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: concourse
+  namespace: myproject
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: concourse
+  endpoints:
+  - port: web
