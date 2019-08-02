@@ -1,6 +1,10 @@
 # flux
 
 
+minikube start --cpus 8 --memory 16384 --disk-size 200g
+
+
+
 Add Secretes 
 
 kubectl -n kube-system create sa tiller
@@ -29,4 +33,3 @@ once the flux pod comes up
 
   kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 
-  
