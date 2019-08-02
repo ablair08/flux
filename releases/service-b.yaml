@@ -2,7 +2,7 @@ apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
   name: service-b
-  namespace: myoproject
+  namespace: myproject
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: semver:~1.0
@@ -36,7 +36,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: example-app
-  namespace: myoproject
+  namespace: myproject
   labels:
     team: frontend
 spec:
