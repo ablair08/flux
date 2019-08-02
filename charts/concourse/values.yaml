@@ -545,7 +545,7 @@ concourse:
       servicePrefix:
 
     prometheus:
-      enabled: false
+      enabled: true
 
       ## IP to listen on to expose Prometheus metrics.
       ##
