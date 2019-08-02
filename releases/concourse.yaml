@@ -1,52 +1,52 @@
-apiVersion: flux.weave.works/v1beta1
-kind: HelmRelease
-metadata:
-  name: concourse
-  namespace: myproject
-  annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: semver:~1.0
-spec:
-  selector:
-    matchLabels:
-      app: concourse
-  template:
-    metadata:
-      labels:
-        app: concourse
-  releaseName: service-b
-  chart:
-    git: ssh://git@github.com/ablair08/flux
-    ref: master
-    path: charts/concourse
-  values:
-    values:
-    image:
-      repository: concourse/concourse
-      tag: "5.4.0"
-    persistence:
-      enabled: false
-    resources:
-      requests:
-        memory: 32Mi
-        cpu: 10m
-    concourse:
-      web:
-        prometheus:
-          web:
-            enabled: 'true'
-    serviceType: ClusterIP
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: concourse
-  namespace: myproject
-  labels:
-    team: frontend
-spec:
-  selector:
-    matchLabels:
-      name: concourse
-  endpoints:
-  - port: web
+# apiVersion: flux.weave.works/v1beta1
+# kind: HelmRelease
+# metadata:
+#   name: concourse
+#   namespace: myproject
+#   annotations:
+#     flux.weave.works/automated: "true"
+#     flux.weave.works/tag.chart-image: semver:~1.0
+# spec:
+#   selector:
+#     matchLabels:
+#       app: concourse
+#   template:
+#     metadata:
+#       labels:
+#         app: concourse
+#   releaseName: service-b
+#   chart:
+#     git: ssh://git@github.com/ablair08/flux
+#     ref: master
+#     path: charts/concourse
+#   values:
+#     values:
+#     image:
+#       repository: concourse/concourse
+#       tag: "5.4.0"
+#     persistence:
+#       enabled: false
+#     resources:
+#       requests:
+#         memory: 32Mi
+#         cpu: 10m
+#     concourse:
+#       web:
+#         prometheus:
+#           web:
+#             enabled: 'true'
+#     serviceType: ClusterIP
+# ---
+# apiVersion: monitoring.coreos.com/v1
+# kind: ServiceMonitor
+# metadata:
+#   name: concourse
+#   namespace: myproject
+#   labels:
+#     team: frontend
+# spec:
+#   selector:
+#     matchLabels:
+#       name: concourse
+#   endpoints:
+#   - port: web
