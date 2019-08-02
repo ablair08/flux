@@ -1,38 +1,36 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
 metadata:
   name: concourse
   namespace: myproject
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: semver:~1.0
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      name: concourse
+      app: concourse
   template:
     metadata:
       labels:
-        name: concourse
-    spec:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000140100
-      containers:
-      - name: concourse
-        image: concourse/concourse
-        ports:
-        - name: web
-          containerPort: 9391
-        - name: ui
-          containerPort: 8080
-        resources:
-            limits:
-              cpu: 200m
-              memory: 200Mi
-            requests:
-              cpu: 100m
-              memory: 100Mi
-        securityContext:
-          allowPrivilegeEscalation: false
+        app: concourse
+  releaseName: service-b
+  chart:
+    git: ssh://git@github.com/ablair08/flux
+    ref: master
+    path: charts/concourse
+  values:
+    values:
+    image:
+      repository: concourse/concourse
+      tag: "5.4.0"
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 32Mi
+        cpu: 10m
+    serviceType: ClusterIP
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
