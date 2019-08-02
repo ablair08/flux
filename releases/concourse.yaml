@@ -2,15 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: concourse
+  namespace: myproject
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: concourse
+      name: concourse
   template:
     metadata:
       labels:
-        app: concourse
+        name: concourse
     spec:
       securityContext:
         runAsNonRoot: true
@@ -43,6 +44,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: concourse
+      name: concourse
   endpoints:
   - port: web
