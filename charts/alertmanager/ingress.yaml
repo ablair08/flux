@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: alertmanager-operated
+  namespace: myproject
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: prom.minishift.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: alertmanager-operated
+          servicePort: web
