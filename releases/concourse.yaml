@@ -34,3 +34,4 @@ spec:
       app: concourse-web
   endpoints:
   - port: prometheus
+  - port: atc
