@@ -11,6 +11,10 @@ spec:
     matchLabels:
       app: concourse
   template:
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000140100
     metadata:
       labels:
         app: concourse
