@@ -12,5 +12,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: grafana-exporter
-          servicePort: web
+          serviceName: grafana-service
+          servicePort: grafana-http
