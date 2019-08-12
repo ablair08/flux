@@ -34,7 +34,6 @@ spec:
       app: concourse-web
   endpoints:
   - port: prometheus
-  - port: atc
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
