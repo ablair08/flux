@@ -35,3 +35,20 @@ spec:
   endpoints:
   - port: prometheus
   - port: atc
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: concourse-web
+  namespace: myproject
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: concourse.minishift.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: concourse-web
+          servicePort: atc
