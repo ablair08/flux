@@ -9,6 +9,7 @@ rules:
       - services
       - serviceaccounts
       - grafanas
+      - grafanas/finalizers
       - grafanadatasources
       - grafanadashboards
       - grafanadashboards/finalizers
