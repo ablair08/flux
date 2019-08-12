@@ -1,18 +1,18 @@
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: grafana-exporter
-  namespace: myproject
-  labels:
-    team: frontend
-spec:
-  selector:
-    matchLabels:
-      app: grafana
-  endpoints:
-  - name: web
-    port: 3000
----
+# apiVersion: monitoring.coreos.com/v1
+# kind: ServiceMonitor
+# metadata:
+#   name: grafana-exporter
+#   namespace: myproject
+#   labels:
+#     team: frontend
+# spec:
+#   selector:
+#     matchLabels:
+#       app: grafana
+#   endpoints:
+#   - name: web
+#     port: 3000
+# ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
