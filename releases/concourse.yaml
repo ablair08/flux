@@ -13,8 +13,7 @@ spec:
   template:
     spec:
       securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000140101
+        priviledged: true
     metadata:
       labels:
         app: concourse
