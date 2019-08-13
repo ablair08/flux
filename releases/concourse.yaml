@@ -39,7 +39,7 @@ spec:
             securityContext:
               runAsUser: 1000140100 
       securityContext:
-        # fsGroup: 5001
+        fsGroup: 5001
         runAsUser: 1000140100
         runAsNonRoot: true
         securityContext:
