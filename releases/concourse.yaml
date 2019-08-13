@@ -26,9 +26,9 @@ spec:
     prometheus:
       enabled: true
     spec:
-        initContainers:
-        - securityContext:
-            privileged: false
+      initContainers:
+      - securityContext:
+          privileged: false
     metrics:
       enabled: true
     postgresql:
