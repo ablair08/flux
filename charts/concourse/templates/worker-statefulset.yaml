@@ -30,7 +30,7 @@ spec:
     {{- end }}
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000140100
+        runAsUser: null
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "concourse.worker.fullname" . }}{{ else }}{{ .Values.rbac.workerServiceAccountName }}{{ end }}
       {{- if .Values.worker.tolerations }}
       tolerations:
@@ -56,7 +56,7 @@ spec:
           imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
           securityContext:
             runAsNonRoot: true
-            runAsUser: 1000140100
+            runAsUser: null
             # privileged: true
           command:
             - /bin/bash
