@@ -23,6 +23,12 @@ spec:
     ref: master
     path: charts/concourse
     serviceType: ClusterIP
+  values:
+    securityContext:
+      enabled: true
+      fsGroup: 
+      runAsUser: 1000140100
+      runAsNonRoot: true
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
