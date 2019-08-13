@@ -36,8 +36,7 @@ spec:
       spec:
         initContainers:
           securityContext:
-            securityContext:
-              runAsUser: 1000140100 
+            runAsUser: 1000140100 
       securityContext:
         enabled: false
         fsGroup: 5001
