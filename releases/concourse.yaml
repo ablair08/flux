@@ -35,6 +35,9 @@ spec:
       securityContext:
         runAsUser: 1000140100
         runAsNonRoot: true
+        securityContext:
+          runAsUser: 1000140100
+          runAsNonRoot: true
       metrics:
         enabled: true
 
