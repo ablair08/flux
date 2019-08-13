@@ -28,7 +28,7 @@ spec:
       enabled: true
     spec:
       initContainers:
-      - securityContext:
+        securityContext:
           privileged: false
     metrics:
       enabled: true
