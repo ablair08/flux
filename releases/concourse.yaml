@@ -25,10 +25,19 @@ spec:
     serviceType: ClusterIP
   values:
     securityContext:
-      enabled: true
-      fsGroup: 
-      runAsUser: 1000140100
+      enabled: false
+      fsGroup: null
+      runAsUser: null
       runAsNonRoot: true
+    metrics:
+      enabled: true
+    postgresql:
+      securityContext:
+        runAsUser: 1000140100
+        runAsNonRoot: true
+
+      
+      
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
