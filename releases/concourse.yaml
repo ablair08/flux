@@ -33,6 +33,8 @@ spec:
     metrics:
       enabled: true
     postgresql:
+      serviceAccount:
+        enabled: true
       spec:
         initContainers:
           securityContext:
