@@ -24,8 +24,6 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com/
     version: 8.2.2
   values:
-    securityContext:
-      runAsUser: 1000140100
     prometheus:
       enabled: true
     spec:
@@ -37,7 +35,7 @@ spec:
     postgresql:
       spec:
         initContainers:
-        - securityContext:
+          securityContext:
             securityContext:
               runAsUser: 1000140100 
       securityContext:
