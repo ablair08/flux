@@ -33,6 +33,8 @@ spec:
     metrics:
       enabled: true
     postgresql:
+      persistence:
+        enabled: false
       serviceAccount:
         enabled: true
       spec:
