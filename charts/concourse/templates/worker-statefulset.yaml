@@ -57,7 +57,7 @@ spec:
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000140100
-            privileged: true
+            # privileged: true
           command:
             - /bin/bash
           args:
@@ -279,7 +279,7 @@ spec:
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000140100
-            privileged: true
+            # privileged: true
           volumeMounts:
             - name: concourse-keys
               mountPath: {{ .Values.worker.keySecretsPath | quote }}
