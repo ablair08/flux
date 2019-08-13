@@ -28,10 +28,11 @@ spec:
     metrics:
       enabled: true
     postgresql:
-      initContainers:
-      - securityContext:
-          securityContext:
-            runAsUser: 1000140100 
+      spec:
+        initContainers:
+        - securityContext:
+            securityContext:
+              runAsUser: 1000140100 
       securityContext:
         # fsGroup: 5001
         runAsUser: 1000140100
