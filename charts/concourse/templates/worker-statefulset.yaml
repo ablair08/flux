@@ -278,7 +278,7 @@ spec:
 {{- end }}
           securityContext:
             runAsNonRoot: true
-            runAsUser: 1000140101
+            runAsUser: null
             # privileged: true
           volumeMounts:
             - name: concourse-keys
