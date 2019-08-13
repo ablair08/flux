@@ -21,17 +21,19 @@ spec:
   chart:
     name: concourse
     repository: https://kubernetes-charts.storage.googleapis.com/
-    version: 5.4.0
+    version: 5.4.1
   values:
+    prometheus:
+      enabled: true
     metrics:
       enabled: true
     postgresql:
       securityContext:
-        fsGroup: 0
+        fsGroup: 5001
         runAsUser: 1000140100
         runAsNonRoot: true
         securityContext:
-          fsGroup: 0
+          fsGroup: 5001
           runAsUser: 1000140100
           runAsNonRoot: true
       metrics:
