@@ -30,16 +30,18 @@ spec:
           runAsUser: 1000140100
     securityContext:
       enabled: false
-      fsGroup: null
+      fsGroup: 0
       runAsUser: null
       runAsNonRoot: true
     metrics:
       enabled: true
     postgresql:
       securityContext:
+        fsGroup: 0
         runAsUser: 1000140100
         runAsNonRoot: true
         securityContext:
+          fsGroup: 0
           runAsUser: 1000140100
           runAsNonRoot: true
       metrics:
