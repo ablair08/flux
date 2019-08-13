@@ -28,6 +28,9 @@ spec:
       nodeSelector:
 {{ toYaml .Values.worker.nodeSelector | indent 8 }}
     {{- end }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000140100
       serviceAccountName: {{ if .Values.rbac.create }}{{ template "concourse.worker.fullname" . }}{{ else }}{{ .Values.rbac.workerServiceAccountName }}{{ end }}
       {{- if .Values.worker.tolerations }}
       tolerations:
