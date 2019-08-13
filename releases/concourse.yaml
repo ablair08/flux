@@ -15,6 +15,7 @@ spec:
       securityContext:
         priviledged: true
     metadata:
+      namespace: myproject
       labels:
         app: concourse
   releaseName: concourse
