@@ -19,20 +19,10 @@ spec:
         app: concourse
   releaseName: concourse
   chart:
-    git: ssh://git@github.com/ablair08/flux
-    ref: master
-    path: charts/concourse
-    serviceType: ClusterIP
+    name: concourse
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    version: 5.4.0
   values:
-    initContainers:
-    - securityContext:
-        securityContext:
-          runAsUser: 1000140100
-    securityContext:
-      enabled: false
-      fsGroup: 0
-      runAsUser: null
-      runAsNonRoot: true
     metrics:
       enabled: true
     postgresql:
@@ -45,10 +35,7 @@ spec:
           runAsUser: 1000140100
           runAsNonRoot: true
       metrics:
-        enabled: true
-
-      
-      
+        enabled: true  
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
