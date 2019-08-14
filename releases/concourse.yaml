@@ -24,9 +24,10 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com/
     version: 8.2.2
   values:
-    web:  
-      prometheus:
-        enabled: true
+    concourse:
+      web:  
+        prometheus:
+          enabled: true
     worker:
       spec:
         initContainers:
