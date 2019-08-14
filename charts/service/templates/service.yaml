@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: {{ include "service-a.fullname" . }}
   labels:
+    app: {{ include "service-a.name" . }}
     app.kubernetes.io/name: {{ include "service-a.name" . }}
     helm.sh/chart: {{ include "service-a.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
