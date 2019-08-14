@@ -23,7 +23,7 @@ spec:
     values:
     image:
       repository: fabxc/instrumented_app
-      tag:
+      tag: latest
     persistence:
       enabled: false
     resources:
