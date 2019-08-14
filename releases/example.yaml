@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-app
+  name: example-deployment
   namespace: myproject
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: example-app
+      app: example-deployment
   template:
     metadata:
       labels:
-        app: example-app
+        app: example-deployment
     spec:
       containers:
       - name: example-app
@@ -19,3 +19,17 @@ spec:
         ports:
         - name: web
           containerPort: 8080
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: example-deployment
+  namespace: myproject
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: example-deployment
+  endpoints:
+  - port: web   
