@@ -29,9 +29,9 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
-      values:
-        service:
-          type: ClusterIP
+  values:
+    service:
+      type: ClusterIP
 ---
 apiVersion: v1
 kind: Service
