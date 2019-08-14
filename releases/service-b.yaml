@@ -1,47 +1,47 @@
-# apiVersion: flux.weave.works/v1beta1
-# kind: HelmRelease
-# metadata:
-#   name: service-b
-#   namespace: myproject
-#   annotations:
-#     flux.weave.works/automated: "true"
-#     flux.weave.works/tag.chart-image: semver:~1.0
-# spec:
-#   selector:
-#     matchLabels:
-#       app: example-app
-#   template:
-#     metadata:
-#       labels:
-#         app: example-app
-#   releaseName: service-b
-#   chart:
-#     git: ssh://git@github.com/ablair08/flux
-#     ref: master
-#     path: charts/service
-#   values:
-#     values:
-#     image:
-#       repository: nginx
-#       tag: 1.17
-#     persistence:
-#       enabled: false
-#     resources:
-#       requests:
-#         memory: 32Mi
-#         cpu: 10m
-#     serviceType: ClusterIP
-# ---
-# apiVersion: monitoring.coreos.com/v1
-# kind: ServiceMonitor
-# metadata:
-#   name: example-app
-#   namespace: myproject
-#   labels:
-#     team: frontend
-# spec:
-#   selector:
-#     matchLabels:
-#       app: example-app
-#   endpoints:
-#   - port: web
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: service-b
+  namespace: myproject
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: semver:~1.0
+spec:
+  selector:
+    matchLabels:
+      app: example-app
+  template:
+    metadata:
+      labels:
+        app: example-app
+  releaseName: service-b
+  chart:
+    git: ssh://git@github.com/ablair08/flux
+    ref: master
+    path: charts/service
+  values:
+    values:
+    image:
+      repository: fabxc/instrumented_app
+      tag:
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 32Mi
+        cpu: 10m
+    serviceType: ClusterIP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: example-app
+  namespace: myproject
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: example-app
+  endpoints:
+  - port: web
