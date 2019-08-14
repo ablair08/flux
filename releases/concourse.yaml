@@ -33,6 +33,8 @@ spec:
           securityContext:
             privileged: false
             runAsUser: 1000140550
+      securityContext:
+        enabled: false
     # metrics:
     #   enabled: true
     postgresql:
