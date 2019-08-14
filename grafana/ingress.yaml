@@ -1,8 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: myproject
+  app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000140100
+      containers:
+      - name: grafana
+        image: grafana/grafana
+        ports:
+        - name: web
+          containerPort: 3000
+        resources:
+            limits:
+              cpu: 200m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: grafana
+  namespace: myproject
   labels:
     app: grafana
 spec:
@@ -16,6 +51,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: grafana
+  namespace: myproject
   labels:
     team: frontend
 spec:
@@ -28,7 +64,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: grafana-service
+  name: grafana
   namespace: myproject
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
