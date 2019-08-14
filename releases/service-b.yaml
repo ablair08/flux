@@ -1,8 +1,8 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: service-b
-  app: service-b
+  name: example-app
+  app: example-app
   namespace: myproject
   annotations:
     flux.weave.works/automated: "true"
@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: example-app
-  releaseName: service-b
+  releaseName: example-app
   chart:
     git: ssh://git@github.com/ablair08/flux
     ref: master
