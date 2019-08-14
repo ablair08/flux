@@ -1,3 +1,30 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana
+  labels:
+    app: grafana
+spec:
+  selector:
+    app: grafana
+  ports:
+  - name: web
+    port: 3000
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: grafana
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: grafana
+  endpoints:
+  - port: web
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -12,5 +39,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: grafana-service
-          servicePort: grafana-http
+          serviceName: grafana
+          servicePort: web
