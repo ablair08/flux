@@ -29,9 +29,6 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
-  values:
-    service:
-      type: ClusterIP
 ---
 apiVersion: v1
 kind: Service
@@ -39,7 +36,6 @@ metadata:
   name: example-deployment
   namespace: myproject
 spec:
-  type: ClusterIP
   ports:
   - name: web
     port: 8080
