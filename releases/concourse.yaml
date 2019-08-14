@@ -13,7 +13,8 @@ spec:
   template:
     spec:
       securityContext:
-        priviledged: true
+        priviledged: false
+        runAsUser: 1000140100
     metadata:
       namespace: myproject
       labels:

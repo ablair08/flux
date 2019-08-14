@@ -4,7 +4,7 @@ metadata:
   name: example-deployment
   namespace: myproject
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: example-deployment
@@ -13,6 +13,9 @@ spec:
       labels:
         app: example-deployment
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000140100
       containers:
       - name: example-app
         image: fabxc/instrumented_app
@@ -26,21 +29,21 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: example-deployment
-# spec:
-#   type: NodePort
-#   ports:
-#   - name: web
-#     # nodePort: 8080
-#     port: 8080
-#     protocol: TCP
-#     targetPort: web
-#   selector:
-#     app: example-deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-deployment
+spec:
+  type: NodePort
+  ports:
+  - name: web
+    # nodePort: 8080
+    port: 8080
+    protocol: TCP
+    targetPort: web
+  selector:
+    app: example-deployment
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
