@@ -16,6 +16,7 @@ spec:
   template:
     metadata:
       labels:
+        app: {{ .Release.Name }}
         app.kubernetes.io/name: {{ include "service-a.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
