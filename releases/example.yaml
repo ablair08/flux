@@ -32,5 +32,4 @@ spec:
     matchLabels:
       app: example-deployment
   endpoints:
-  - name: web
-    port: 8080   
+  - name: web 
