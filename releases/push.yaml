@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pushgateway
+  app: pushgateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pushgateway
+  template:
+    metadata:
+      labels:
+        app: pushgateway
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000140100
+      containers:
+      - name: pushgateway
+        image: prom/pushgateway
+        ports:
+        - name: web
+          containerPort: 9091
+        resources:
+            limits:
+              cpu: 200m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pushgateway
+  labels:
+    app: pushgateway
+spec:
+  selector:
+    app: pushgateway
+  ports:
+  - name: web
+    port: 9091
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pushgateway
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: pushgateway
+  endpoints:
+  - port: web
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pushgateway
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: push.minishift.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pushgateway
+          servicePort: web
