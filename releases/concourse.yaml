@@ -30,6 +30,7 @@ spec:
       initContainers:
         securityContext:
           privileged: false
+          runAsUser: 1000140550
     metrics:
       enabled: true
     postgresql:
