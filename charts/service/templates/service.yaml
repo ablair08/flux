@@ -11,9 +11,9 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: web
       protocol: TCP
-      name: http
+      name: web
   selector:
     app.kubernetes.io/name: {{ include "service-a.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
