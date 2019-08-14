@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: example-deployment
-  app: example-deployment
   namespace: myproject
 spec:
   replicas: 3
