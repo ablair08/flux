@@ -3,6 +3,8 @@ kind: Grafana
 metadata:
   name: example-grafana
   namespace: myproject
+  labels:
+    app: example-grafana
 spec:
   config:
     log:
