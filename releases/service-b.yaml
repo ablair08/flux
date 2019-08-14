@@ -23,6 +23,8 @@ spec:
     values:
     image:
       repository: fabxc/instrumented_app
+    service:
+      port: 8080
     persistence:
       enabled: false
     resources:
