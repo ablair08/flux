@@ -44,6 +44,6 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: example-app
+      app: service-b
   endpoints:
   - port: web
