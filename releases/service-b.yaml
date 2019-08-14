@@ -2,6 +2,7 @@ apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
   name: service-b
+  app: service-b
   namespace: myproject
   annotations:
     flux.weave.works/automated: "true"
