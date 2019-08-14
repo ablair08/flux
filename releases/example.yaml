@@ -23,7 +23,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: example-deployment
+  app: example-deployment
   namespace: myproject
   labels:
     team: frontend
