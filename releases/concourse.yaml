@@ -31,9 +31,11 @@ spec:
           enabled: true
         ingress:
           enabled: true
+          annotations:
+            - nginx.ingress.kubernetes.io/rewrite-target: /
           hosts: 
             - concourse.minishift.local
-          bindport: atc
+          bindPort: atc
           # http:
           # paths:
           #   - path: /
