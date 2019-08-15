@@ -14,8 +14,8 @@ spec:
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
-namespace: myproject
 metadata:
+  namespace: myproject
   name: grafana
   labels:
     team: frontend
