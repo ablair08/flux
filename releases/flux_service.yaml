@@ -23,6 +23,9 @@ spec:
   selector:
     matchLabels:
       app: flux
+  serviceMonitorNamespaceSelector:
+    - flux
+    - myproject
   namespaceSelector:
     matchNames:
     - flux
