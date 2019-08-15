@@ -31,8 +31,9 @@ spec:
           enabled: true
         ingress:
           enabled: true
-        hosts: 
-          - concourse.minishift.local
+          hosts: 
+            - concourse.minishift.local
+          bindport: atc
           # http:
           # paths:
           #   - path: /
