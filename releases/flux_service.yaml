@@ -23,5 +23,9 @@ spec:
   selector:
     matchLabels:
       app: flux
+  namespaceSelector:
+    matchNames:
+    - flux
+    - myproject
   endpoints:
   - port: web
