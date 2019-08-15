@@ -44,3 +44,10 @@ rules:
     - statefulsets
     verbs:
     - '*'
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    verbs:
+    - list
+    - get
