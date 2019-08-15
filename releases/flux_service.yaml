@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: flux
-  namespace: myproject
+  namespace: flux
   labels:
     app: flux
 spec:
