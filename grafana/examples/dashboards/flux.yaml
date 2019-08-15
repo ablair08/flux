@@ -5,7 +5,8 @@ metadata:
   labels:
     app: grafana
   namespace: myproject
-spec: flux.json
+spec: 
+  name: flux.json
   json: >
     {
       "annotations": {
