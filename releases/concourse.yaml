@@ -31,14 +31,13 @@ spec:
           enabled: true
         ingress:
           enabled: true
-        hosts:
-        - concourse.minishift.local
-        http:
-          paths:
-          - path: /
-            backend:
-              serviceName: concourse-web
-              servicePort: atc
+        hosts: - concourse.minishift.local
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: concourse-web
+                servicePort: atc
     worker:
       spec:
         initContainers:
