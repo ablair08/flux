@@ -1,0 +1,27 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: flux
+  namespace: myproject
+  labels:
+    app: flux
+spec:
+  selector:
+    app: flux
+  ports:
+  - name: web
+    port: 3030
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux
+  namespace: myproject
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: flux
+  endpoints:
+  - port: web
