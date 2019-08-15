@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: flux
+  name: myproject
   namespace: myproject
   labels:
     team: frontend
@@ -18,4 +18,4 @@ spec:
     - flux
     - myproject
   endpoints:
-  - port: web
+  - port: http
