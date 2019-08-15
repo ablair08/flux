@@ -10,6 +10,7 @@ spec:
     matchLabels:
       app: flux
   serviceMonitorNamespaceSelector:
+    matchNames:
     - flux
     - myproject
   namespaceSelector:
