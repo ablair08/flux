@@ -43,10 +43,9 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/component: controller
-      app.kubernetes.io/name: prometheus-operator
+      operated-prometheus: 'true'
   endpoints:
-  - port: http
+  - port: web
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
