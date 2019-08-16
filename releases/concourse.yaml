@@ -98,19 +98,28 @@ spec:
   endpoints:
   - port: prometheus
 ---
-# apiVersion: extensions/v1beta1
-# kind: Ingress
-# metadata:
-#   name: concourse-web
-#   namespace: myproject
-#   annotations:
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   rules:
-#   - host: concourse.minishift.local
-#     http:
-#       paths:
-#       - path: /
-#         backend:
-#           serviceName: concourse-web
-#           servicePort: atc
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: concourse-postgres
+  namespace: monitoring
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: postgresql
+  serviceMonitorNamespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
+  namespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
+  endpoints:
+  - port: metrics
