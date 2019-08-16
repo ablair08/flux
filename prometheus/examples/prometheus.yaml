@@ -56,6 +56,9 @@ kind: Prometheus
 metadata:
   name: prometheus
   namespace: monitoring
+  labels:
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/name: prometheus
 spec:
   replicas: 1
   securityContext:
@@ -87,6 +90,8 @@ kind: Alertmanager
 metadata:
   name: alertmanager
   namespace: monitoring
+  labels:
+    app: alertmanager
 spec:
   replicas: 2
   securityContext:
