@@ -29,9 +29,10 @@ spec:
       enabled: true
       ingress:
         enabled: true
-        # annotations:
-        #   - nginx.ingress.kubernetes.io/rewrite-target: /
-        # hosts: concourse.minishift.local
+        annotations:
+          - nginx.ingress.kubernetes.io/rewrite-target: /
+        hosts: 
+            - concourse.minishift.local
     concourse:
       web:  
         prometheus:
