@@ -25,15 +25,21 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com/
     version: 8.2.2
   values:
+    web:  
+      ingress:
+        enabled: true
+        # annotations:
+        #   - nginx.ingress.kubernetes.io/rewrite-target: /
+        # hosts: concourse.minishift.local
     concourse:
       web:  
         prometheus:
           enabled: true
-        ingress:
-          enabled: true
-          annotations:
-            - nginx.ingress.kubernetes.io/rewrite-target: /
-          hosts: concourse.minishift.local
+        # ingress:
+        #   enabled: true
+        #   annotations:
+        #     - nginx.ingress.kubernetes.io/rewrite-target: /
+        #   hosts: concourse.minishift.local
           # bindPort: atc
           # http:
           # paths:
