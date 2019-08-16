@@ -83,6 +83,18 @@ spec:
   selector:
     matchLabels:
       app: concourse-web
+  serviceMonitorNamespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
+  namespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
   endpoints:
   - port: prometheus
 ---
