@@ -92,6 +92,7 @@ metadata:
   namespace: monitoring
   labels:
     app: alertmanager
+    service: alertmanager
 spec:
   replicas: 2
   securityContext:
