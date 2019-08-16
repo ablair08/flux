@@ -76,7 +76,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: concourse
-  namespace: concourse
+  namespace: monitoring
   labels:
     team: frontend
 spec:
