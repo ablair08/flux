@@ -26,8 +26,8 @@ spec:
       "editable": true,
       "gnetId": 455,
       "graphTooltip": 0,
-      "id": 5,
-      "iteration": 1565968472851,
+      "id": 8,
+      "iteration": 1565969601735,
       "links": [],
       "panels": [
         {
@@ -1330,7 +1330,8 @@ spec:
         ]
       },
       "timezone": "browser",
-      "title": "Concourse Postgres Overview",
+      "title": "Postgres Overview",
       "uid": "wGgaPlciz",
-      "version": 2
+      "version": 1
     }
+  
