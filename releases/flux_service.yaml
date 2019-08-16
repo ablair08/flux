@@ -13,9 +13,11 @@ spec:
     matchNames:
     - flux
     - myproject
+    - monitoring
   namespaceSelector:
     matchNames:
     - flux
     - myproject
+    - monitoring
   endpoints:
   - port: http
