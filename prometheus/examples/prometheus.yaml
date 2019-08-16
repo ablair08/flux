@@ -45,7 +45,7 @@ spec:
         beta.kubernetes.io/os: linux
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000140100
+        runAsUser: 1000170100
       serviceAccountName: prometheus-operator
       # additionalScrapeConfigs:
       #   name: additional-scrape-configs
