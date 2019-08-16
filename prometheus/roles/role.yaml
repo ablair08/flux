@@ -95,4 +95,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: prometheus
-  namespace: myproject
+  namespace: monitoring
