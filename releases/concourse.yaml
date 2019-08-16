@@ -50,6 +50,8 @@ spec:
             runAsUser: 1000140550
       securityContext:
         enabled: false
+      serviceAccount:
+        enabled: true
     # metrics:
     #   enabled: true
     postgresql:
