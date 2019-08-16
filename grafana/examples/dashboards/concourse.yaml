@@ -4,7 +4,7 @@ metadata:
   name: concourse
   labels:
     app: grafana
-  namespace: myproject
+  namespace: grafana
 spec: 
   name: concourse1.json
   json: >

@@ -4,7 +4,7 @@ metadata:
   name: prometheus
   labels:
     app: grafana
-  namespace: myproject
+  namespace: grafana
 spec:
   name: Prometheus.json
   json: >

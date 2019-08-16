@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: myproject
+  namespace: grafana
   name: grafana
   labels:
     app: grafana
@@ -15,7 +15,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  namespace: myproject
+  namespace: grafana
   name: grafana
   labels:
     team: frontend
