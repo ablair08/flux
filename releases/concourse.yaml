@@ -2,7 +2,7 @@ apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
   name: concourse
-  namespace: myproject
+  namespace: concourse
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.chart-image: semver:~1.0
@@ -16,7 +16,7 @@ spec:
         priviledged: false
         runAsUser: 1000140100
     metadata:
-      namespace: myproject
+      namespace: concourse
       labels:
         app: concourse
   releaseName: concourse
@@ -37,18 +37,6 @@ spec:
       web:  
         prometheus:
           enabled: true
-        # ingress:
-        #   enabled: true
-        #   annotations:
-        #     - nginx.ingress.kubernetes.io/rewrite-target: /
-        #   hosts: concourse.minishift.local
-          # bindPort: atc
-          # http:
-          # paths:
-          #   - path: /
-          #     backend:
-          #       serviceName: concourse-web
-          #       servicePort: atc
         externalUrl: concourse.minishift.local
     worker:
       spec:
@@ -88,7 +76,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: concourse
-  namespace: myproject
+  namespace: concourse
   labels:
     team: frontend
 spec:
