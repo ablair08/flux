@@ -26,6 +26,7 @@ spec:
     version: 8.2.2
   values:
     web:  
+      enabled: true
       ingress:
         enabled: true
         # annotations:
