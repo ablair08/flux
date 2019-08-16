@@ -33,8 +33,7 @@ spec:
           enabled: true
           annotations:
             - nginx.ingress.kubernetes.io/rewrite-target: /
-          hosts: 
-            concourse.minishift.local
+          hosts: concourse.minishift.local
           # bindPort: atc
           # http:
           # paths:
@@ -42,6 +41,7 @@ spec:
           #     backend:
           #       serviceName: concourse-web
           #       servicePort: atc
+        externalUrl: concourse.minishift.local
     worker:
       spec:
         initContainers:
