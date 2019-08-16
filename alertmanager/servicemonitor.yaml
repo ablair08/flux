@@ -1,0 +1,28 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: alertmanager
+  namespace: monitoring
+  labels:
+    team: frontend
+spec:
+  selector:
+    matchLabels:
+      app: alertmanager
+  serviceMonitorNamespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
+    - grafana
+  namespaceSelector:
+    matchNames:
+    - flux
+    - myproject
+    - monitoring
+    - concourse
+    - grafana
+  endpoints:
+  - port: web
