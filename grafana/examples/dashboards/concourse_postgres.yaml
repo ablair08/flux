@@ -1,7 +1,7 @@
 apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDashboard
 metadata:
-  name: concourse_postgres
+  name: concourse-postgres
   labels:
     app: grafana
   namespace: grafana
