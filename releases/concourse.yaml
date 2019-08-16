@@ -108,7 +108,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: concourse-web
+      app: postgresql
   serviceMonitorNamespaceSelector:
     matchNames:
     - flux
@@ -122,4 +122,4 @@ spec:
     - monitoring
     - concourse
   endpoints:
-  - port: prometheus
+  - port: metrics
