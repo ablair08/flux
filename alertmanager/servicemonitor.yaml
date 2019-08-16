@@ -9,7 +9,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: alertmanager
+      operated-alertmanager: 'true'
   serviceMonitorNamespaceSelector:
     matchNames:
     - flux
