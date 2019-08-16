@@ -63,7 +63,7 @@ spec:
     runAsUser: 1000140100
   alerting:
     alertmanagers:
-    - namespace: myproject
+    - namespace: monitoring
       name: alertmanager
       port: web
   additionalScrapeConfigs:
