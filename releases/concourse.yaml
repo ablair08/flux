@@ -34,7 +34,7 @@ spec:
           annotations:
             - nginx.ingress.kubernetes.io/rewrite-target: /
           hosts: 
-            - concourse.minishift.local
+            host: concourse.minishift.local
           bindPort: atc
           # http:
           # paths:
