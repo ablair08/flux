@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: prometheus-operator
     app.kubernetes.io/version: v0.31.1
   name: prometheus-operator
-  namespace: myproject
+  namespace: monitoring
 spec:
   replicas: 1
   selector:
@@ -55,7 +55,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   name: prometheus
-  namespace: myproject
+  namespace: monitoring
 spec:
   replicas: 1
   securityContext:
@@ -86,7 +86,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: Alertmanager
 metadata:
   name: alertmanager
-  namespace: myproject
+  namespace: monitoring
 spec:
   replicas: 2
   securityContext:
