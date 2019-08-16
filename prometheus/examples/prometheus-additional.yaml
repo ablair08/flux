@@ -1,6 +1,6 @@
 # - job_name: "prometheus"
 #   static_configs:
-#   - targets: ["prometheus-operated:9090"]
+#   - targets: ["prometheus-operated.monitoring:9090"]
 # - job_name: "alert"
 #   static_configs:
-#   - targets: ["alertmanager-operated:9093"]
+#   - targets: ["alertmanager-operated.monitoring:9093"]
