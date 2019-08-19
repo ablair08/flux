@@ -40,53 +40,7 @@ spec:
       "graphTooltip": 1,
       "id": 6,
       "iteration": 1566225050993,
-      "links": [
-        {
-          "icon": "doc",
-          "tags": [],
-          "targetBlank": true,
-          "title": "Docs",
-          "tooltip": "Official documentation of Alertmanager",
-          "type": "link",
-          "url": "https://prometheus.io/docs/alerting/alertmanager/"
-        },
-        {
-          "icon": "info",
-          "tags": [],
-          "targetBlank": true,
-          "title": "GitHub",
-          "tooltip": "Alertmanager sources on GitHub",
-          "type": "link",
-          "url": "https://github.com/prometheus/alertmanager"
-        },
-        {
-          "icon": "info",
-          "tags": [],
-          "targetBlank": true,
-          "title": "Twitter",
-          "tooltip": "Twitter account with prometheus related info",
-          "type": "link",
-          "url": "https://twitter.com/PrometheusIO"
-        },
-        {
-          "icon": "question",
-          "tags": [],
-          "targetBlank": true,
-          "title": "Mailing list",
-          "tooltip": "Prometheus users mailing list",
-          "type": "link",
-          "url": "https://groups.google.com/forum/#!forum/prometheus-users"
-        },
-        {
-          "icon": "question",
-          "tags": [],
-          "targetBlank": true,
-          "title": "IRC",
-          "tooltip": "Join IRC using Riot",
-          "type": "link",
-          "url": "https://riot.im/app/#/room/#prometheus:matrix.org"
-        }
-      ],
+      "links": [],
       "panels": [
         {
           "collapsed": false,
