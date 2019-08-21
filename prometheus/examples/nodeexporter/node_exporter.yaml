@@ -15,7 +15,7 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000200100
+        runAsUser: 1000210000
       containers:
       - name: node-exporter
         image: prom/node-exporter
