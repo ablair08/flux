@@ -45,7 +45,7 @@ spec:
         beta.kubernetes.io/os: linux
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000200100
+        runAsUser: 1000211000
       serviceAccountName: prometheus-operator
       # additionalScrapeConfigs:
       #   name: additional-scrape-configs
@@ -63,7 +63,7 @@ spec:
   replicas: 1
   securityContext:
     runAsNonRoot: true
-    runAsUser: 1000200100
+    runAsUser: 1000211000
   alerting:
     alertmanagers:
     - namespace: monitoring
@@ -97,7 +97,7 @@ spec:
   replicas: 2
   securityContext:
     runAsNonRoot: true
-    runAsUser: 1000200100
+    runAsUser: 1000211000
   serviceMonitorSelector:
     matchLabels:
       team: frontend
