@@ -49,4 +49,4 @@ fluxcd/flux
 
   kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 
-  copy deploy key to github!!
+  copy deploy key to forked repo on github!!
