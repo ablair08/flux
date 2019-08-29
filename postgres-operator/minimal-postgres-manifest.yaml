@@ -16,6 +16,17 @@ spec:
   databases:
     foo: zalando  # dbname: owner
   postgresql:
+    spec:
+      securityContext:
+        enabled: false
+        # fsGroup: 5555
+        # runAsUser: 1000140100
+        # runAsNonRoot: true
+        securityContext:
+          enabled: false
+          fsGroup: 5055
+          runAsUser: 1000140100
+          runAsNonRoot: true
     version: "11"
   sidecars:
     - name: "exporter"
