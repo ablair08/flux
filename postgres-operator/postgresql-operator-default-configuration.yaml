@@ -2,6 +2,7 @@ apiVersion: "acid.zalan.do/v1"
 kind: OperatorConfiguration
 metadata:
   name: postgresql-operator-default-configuration
+  namespace: postgres
 configuration:
   etcd_host: ""
   docker_image: registry.opensource.zalan.do/acid/spilo-11:1.5-p9
