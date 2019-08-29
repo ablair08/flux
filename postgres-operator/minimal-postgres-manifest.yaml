@@ -1,65 +1,65 @@
-# apiVersion: "acid.zalan.do/v1"
-# kind: postgresql
-# metadata:
-#   name: acid-minimal-cluster
-#   namespace: postgres
-# spec:
-#   teamId: "ACID"
-#   volume:
-#     size: 1Gi
-#   numberOfInstances: 2
-#   users:
-#     zalando:  # database owner
-#     - superuser
-#     - createdb
-#     foo_user: []  # role for application foo
-#   databases:
-#     foo: zalando  # dbname: owner
-#   postgresql:
-#     version: "11"
-#   sidecars:
-#     - name: "exporter"
-#       image: "wrouesnel/postgres_exporter"
-#       ports:
-#         - name: exporter
-#           containerPort: 9187
-#           protocol: TCP
-#       resources:
-#         limits:
-#           cpu: 500m
-#           memory: 256M
-#         requests:
-#           cpu: 100m
-#           memory: 200M
-#       env:
-#         - name: "DATA_SOURCE_URI"
-#           value: "127.0.0.1:5432/concourse?sslmode=disable"
-#         - name: "DATA_SOURCE_USER"
-#           valueFrom:
-#             secretKeyRef:
-#               name: postgres.acid-minimal-cluster.credentials
-#               key: username
-#         - name: "DATA_SOURCE_PASS"
-#           valueFrom:
-#             secretKeyRef:
-#               name: postgres.acid-minimal-cluster.credentials
-#               key: password
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: pg-exporter
-#   namespace: postgres
-#   labels:
-#     app: pg-exporter
-#     team: frontend
-# spec:
-#   ports:
-#     - name: postgres
-#       port: 5432
-#       targetPort: 5432
-#     - name: exporter
-#       port: 9187
-#       targetPort: exporter
-#   selector:
-#     application: spilo
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: acid-minimal-cluster
+  namespace: postgres
+spec:
+  teamId: "ACID"
+  volume:
+    size: 1Gi
+  numberOfInstances: 2
+  users:
+    zalando:  # database owner
+    - superuser
+    - createdb
+    foo_user: []  # role for application foo
+  databases:
+    foo: zalando  # dbname: owner
+  postgresql:
+    version: "11"
+  sidecars:
+    - name: "exporter"
+      image: "wrouesnel/postgres_exporter"
+      ports:
+        - name: exporter
+          containerPort: 9187
+          protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256M
+        requests:
+          cpu: 100m
+          memory: 200M
+      env:
+        - name: "DATA_SOURCE_URI"
+          value: "127.0.0.1:5432/concourse?sslmode=disable"
+        - name: "DATA_SOURCE_USER"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.acid-minimal-cluster.credentials
+              key: username
+        - name: "DATA_SOURCE_PASS"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.acid-minimal-cluster.credentials
+              key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pg-exporter
+  namespace: postgres
+  labels:
+    app: pg-exporter
+    team: frontend
+spec:
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+    - name: exporter
+      port: 9187
+      targetPort: exporter
+  selector:
+    application: spilo
