@@ -9,12 +9,9 @@ spec:
     size: 1Gi
   numberOfInstances: 2
   users:
-    zalando:  # database owner
-    - superuser
-    - createdb
-    foo_user: []  # role for application foo
+    user_database: ["superuser", "createdb"]
   databases:
-    foo: zalando  # dbname: owner
+    database: user_database
   postgresql:
     spec:
       securityContext:
