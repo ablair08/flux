@@ -38,6 +38,33 @@ spec:
 # spiloFSGroup: 103
   postgresql:
     version: "10"
+    sidecars:
+    - name: "exporter"
+      image: "wrouesnel/postgres_exporter"
+      ports:
+        - name: exporter
+          containerPort: 9187
+          protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256M
+        requests:
+          cpu: 100m
+          memory: 200M
+      env:
+        - name: "DATA_SOURCE_URI"
+          value: "127.0.0.1:5432/concourse?sslmode=disable"
+        - name: "DATA_SOURCE_USER"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.acid-minimal-cluster.credentials
+              key: username
+        - name: "DATA_SOURCE_PASS"
+          valueFrom:
+            secretKeyRef:
+              name: postgres.acid-minimal-cluster.credentials
+              key: password
     parameters:
       shared_buffers: "32MB"
       max_connections: "10"
@@ -83,33 +110,7 @@ spec:
   maintenanceWindows:
   - 01:00-06:00  #UTC
   - Sat:00:00-04:00
-sidecars:
-  - name: "exporter"
-    image: "wrouesnel/postgres_exporter"
-    ports:
-      - name: exporter
-        containerPort: 9187
-        protocol: TCP
-    resources:
-      limits:
-        cpu: 500m
-        memory: 256M
-      requests:
-        cpu: 100m
-        memory: 200M
-    env:
-      - name: "DATA_SOURCE_URI"
-        value: "127.0.0.1:5432/concourse?sslmode=disable"
-      - name: "DATA_SOURCE_USER"
-        valueFrom:
-          secretKeyRef:
-            name: postgres.acid-minimal-cluster.credentials
-            key: username
-      - name: "DATA_SOURCE_PASS"
-        valueFrom:
-          secretKeyRef:
-            name: postgres.acid-minimal-cluster.credentials
-            key: password
+
 # sidecars:
 #   - name: "telegraf-sidecar"
 #     image: "telegraf:latest"
