@@ -33,7 +33,7 @@ spec:
           memory: 200M
       env:
         - name: "DATA_SOURCE_URI"
-          value: "postgres/database?sslmode=disable"
+          value: "127.0.0.1:5432/concourse?sslmode=disable"
         - name: "DATA_SOURCE_USER"
           valueFrom:
             secretKeyRef:
