@@ -37,12 +37,12 @@ spec:
         - name: "DATA_SOURCE_USER"
           valueFrom:
             secretKeyRef:
-              name: postgres.postgres.credentials
+              name: postgres.acid-minimal-cluster.credentials
               key: username
         - name: "DATA_SOURCE_PASS"
           valueFrom:
             secretKeyRef:
-              name: postgres.postgres.credentials
+              name: postgres.acid-minimal-cluster.credentials
               key: password
 ---
 apiVersion: v1
