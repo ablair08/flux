@@ -5,6 +5,13 @@ metadata:
   namespace: postgres
 spec:
   dockerImage: registry.opensource.zalan.do/acid/spilo-11:1.5-p9
+  serviceAccountName: zalando-postgres-operator
+  template:
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000211000
+      serviceAccountName: zalando-postgres-operator
   initContainers:
   - name: date
     image: busybox
