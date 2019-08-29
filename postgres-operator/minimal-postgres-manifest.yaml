@@ -52,6 +52,7 @@ metadata:
   namespace: postgres
   labels:
     app: pg-exporter
+    team: frontend
 spec:
   ports:
     - name: postgres
@@ -62,4 +63,3 @@ spec:
       targetPort: exporter
   selector:
     application: spilo
-    team: frontend
