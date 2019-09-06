@@ -37,7 +37,7 @@ spec:
       web:  
         prometheus:
           enabled: true
-        externalUrl: concourse.minishift.local
+        externalUrl: http://concourse.minishift.local
     worker:
       spec:
         initContainers:
